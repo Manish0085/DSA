@@ -20,10 +20,10 @@ public class Sort012 {
         for (j = 0; j < count0; j++) {
             arr[j] = 0;
         }
-        for (; j < count1; j++) {
+        for (j = count0; j < count1+count0; j++) {
             arr[j] = 1;
         }
-        for (; j < count2; j++) {
+        for (j = count0+count1; j < arr.length; j++) {
             arr[j] = 2;
         }
     }
