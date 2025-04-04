@@ -14,7 +14,7 @@ public class MajorityElement {
                     count++;
                 }
             }
-            if (count > (n/2)){
+            if (count  > (n/2)){
                 return arr[i];
             }
         }
