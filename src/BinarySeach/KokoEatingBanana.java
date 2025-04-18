@@ -1,5 +1,7 @@
 package BinarySeach;
 
+import java.util.Arrays;
+
 public class KokoEatingBanana {
 
     private int max(int[] arr){
@@ -25,6 +27,7 @@ public class KokoEatingBanana {
                 low = mid - 1;
             }
         }
+
         return low;
     }
 
