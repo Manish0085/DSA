@@ -19,6 +19,6 @@ public class CheckIfTheKthBitIsSetOrNot {
     }
 
     public static boolean optimal2(int n, int k){
-        return (1 & (n >> k)) == 1;
+        return (1 & (n >> k)) != 0;
     }
 }
