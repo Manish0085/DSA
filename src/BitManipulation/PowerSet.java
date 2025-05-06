@@ -8,9 +8,9 @@ public class PowerSet {
     public static List<List<Integer>> findPowerSet(int[] arr){
         int subsets = 1 << arr.length;
         List<List<Integer>> ans = new ArrayList<>();
-        for (int num = 0; num < subsets-1; num++) {
+        for (int num = 0; num < subsets; num++) {
             List<Integer> list = new ArrayList<>();
-            for (int i = 0; i < arr.length-1; i++) {
+            for (int i = 0; i < arr.length; i++) {
                 if ((num & (1 << i)) != 0)
                     list.add(arr[i]);
             }
