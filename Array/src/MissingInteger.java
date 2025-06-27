@@ -13,4 +13,15 @@ public class MissingInteger {
         }
         return arr.length;
     }
+
+
+    public int alternateOne(int[] arr){
+        int n = arr.length+1;
+        int expectedSum = n*(n+1)/2;
+        int sum = 0;
+        for (int num : arr){
+            sum += num;
+        }
+        return expectedSum-sum;
+    }
 }
