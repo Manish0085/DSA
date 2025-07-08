@@ -27,15 +27,12 @@ public class FindFirstAndLastOccurrence {
 
         int low = 0;
         int high = nums.length-1;
+        int last = -1;
         while (low <= high){
             int mid = low + (high - low)/2;
             if (nums[mid] == key){
-                if (mid == nums.length-1 || nums[mid + 1] != key){
-                    return mid;
-                }
-                else {
-                    low = mid + 1;
-                }
+                last = mid;
+                low = mid + 1;
             } else if (nums[mid] > key) {
                 high = mid - 1;
             }
@@ -43,6 +40,6 @@ public class FindFirstAndLastOccurrence {
                 low = mid + 1;
             }
         }
-        return -1;
+        return last;
     }
 }
