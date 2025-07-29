@@ -1,0 +1,2 @@
+public class SmallestDistinctWindow {
+}
