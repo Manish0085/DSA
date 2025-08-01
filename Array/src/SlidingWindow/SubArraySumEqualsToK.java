@@ -1,5 +1,8 @@
 package SlidingWindow;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SubArraySumEqualsToK {
 
     public int countSubArrays1(int[] arr, int target){
@@ -28,6 +31,23 @@ public class SubArraySumEqualsToK {
                 if(sum == target)
                     count++;
             }
+        }
+        return count;
+    }
+
+
+    public int countSubArrays3(int[] arr, int target){
+        int count = 0;
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        int sum = 0;
+        for (int num: arr){
+            sum += num;
+
+            if (map.containsKey(sum-target)){
+                count += map.get(sum-target);
+            }
+            map.put(sum, map.getOrDefault(sum, 0)+1);
         }
         return count;
     }
