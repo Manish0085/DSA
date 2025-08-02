@@ -44,12 +44,12 @@ public class SubarrayProductEqualToK {
         int prod = 1;
         while (end < nums.length){
             prod *= nums[end];
-            while (prod >= k){
+            while (prod >= k && start <= end){
                 prod /= nums[start];
                 start++;
             }
 
-            count = end - start + 1;
+            count += (end - start + 1);
             end++;
 
         }
