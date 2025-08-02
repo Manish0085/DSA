@@ -35,5 +35,25 @@ public class MinimumSizeSubarraySum {
 
     }
 
+    public int minSubArrayLen3(int target, int[] nums) {
+
+        int length = nums.length+1;
+        int first = 0;
+        int second = 0;
+        int sum = 0;
+
+        while(second < nums.length){
+            sum += nums[second];
+            while (sum >= target){
+                length = Math.min(length, second - first - 1);
+                sum -= nums[first];
+                first++;
+            }
+            second++;
+        }
+        return (length == nums.length+1)? 0: length;
+
+    }
+
 
 }
