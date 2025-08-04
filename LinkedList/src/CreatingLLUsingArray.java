@@ -2,7 +2,7 @@ public class CreatingLLUsingArray {
 
 
 
-    public static void createLL(Node head, int[] arr){
+    public static void createLLByAddingArrayElAtStart(Node head, int[] arr){
         for (int i = 0; i < arr.length; i++) {
             if(head == null){
                 head = new Node(arr[i]);
@@ -11,6 +11,21 @@ public class CreatingLLUsingArray {
                 Node temp = new Node(arr[i]);
                 temp.next = head;
                 head = temp;
+            }
+        }
+        printLL(head);
+    }
+
+    public static void createLLByAddingArrayElAtLast(Node head, int[] arr){
+        Node tail = null;
+        for (int i = 0; i < arr.length; i++) {
+            if(head == null){
+                head = new Node(arr[i]);
+                tail = head;
+            }
+            else {
+                tail.next = new Node(arr[i]);
+                tail = tail.next;
             }
         }
         printLL(head);
@@ -29,7 +44,7 @@ public class CreatingLLUsingArray {
     public static void main(String[] args) {
         int[] arr = {4, 5, 81, 2, 3};
         Node head = null;
-        createLL(head, arr);
+        createLLByAddingArrayElAtLast(head, arr);
 
     }
 }

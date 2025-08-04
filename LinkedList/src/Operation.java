@@ -25,7 +25,8 @@ public class Operation {
         while (temp.next != null){
             temp = temp.next;
         }
-        temp.next = new Node(data);
+        Node newNode = new Node(data);
+        temp.next = newNode;
         return head;
     }
 
