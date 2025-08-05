@@ -59,4 +59,56 @@ public class Operation {
     }
 
 
+    public Node deleteFirst(Node head){
+        if (head == null){
+            System.out.println("List is empty");
+            return null;
+        }
+        return head.next;
+    }
+
+    public Node deleteLast(Node head){
+        if (head == null){
+            System.out.println("List is empty");
+            return null;
+        }
+
+        if (head.next == null)
+            return null;
+
+        Node temp = head;
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+        temp.next = null;
+        return head;
+
+    }
+
+    public Node deleteFromPos(Node head, int pos){
+        if (head == null){
+            System.out.println("List is empty");
+            return null;
+        }
+        if (pos == 0)
+            return head.next;
+        Node temp = head;
+        for (int i = 0; i < pos-1; i++) {
+            if (temp == null){
+                System.out.println("Invalid position");
+                return null;
+            }
+            temp = temp.next;
+        }
+        if (temp.next == null){
+            System.out.println("Invalid position");
+            return null;
+        }
+        temp.next = temp.next.next;
+        return head;
+
+    }
+
+
+
 }
