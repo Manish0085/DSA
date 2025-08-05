@@ -59,6 +59,7 @@ public class Operation {
     }
 
 
+
     public Node deleteFirst(Node head){
         if (head == null){
             System.out.println("List is empty");
@@ -108,6 +109,7 @@ public class Operation {
         return head;
 
     }
+
 
 
 
