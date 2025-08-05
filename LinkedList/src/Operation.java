@@ -91,7 +91,7 @@ public class Operation {
             System.out.println("List is empty");
             return null;
         }
-        if (pos == 0)
+        if (pos == 1)
             return head.next;
         Node temp = head;
         for (int i = 0; i < pos-1; i++) {
@@ -111,6 +111,9 @@ public class Operation {
     }
 
 
+    public void deleteWithoutHead(Node del_node){
+
+    }
 
 
 }

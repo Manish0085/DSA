@@ -49,10 +49,28 @@ public class AddUsingRecursion {
     }
 
 
+    public static Node delete(Node node, int pos){
+        if (node == null){
+            System.out.println("Invalid pos");
+            return null;
+        }
+
+
+        if (pos == 1)
+            return node.next;
+
+        node.next = delete(node.next, --pos);
+        return node;
+    }
+
+
+
     public static void main(String[] args) {
         int[] arr = {4, 5, 81, 2, 3};
         Node head = null;
         Node insert = insertAtStart2(arr, 0, null);
         printLL(insert);
+        printLL(insert);
     }
+
 }
