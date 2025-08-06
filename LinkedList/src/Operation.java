@@ -111,9 +111,7 @@ public class Operation {
     }
 
 
-    public void deleteWithoutHead(Node del_node){
 
-    }
 
 
 }
