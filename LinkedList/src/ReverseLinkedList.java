@@ -5,6 +5,10 @@ public class ReverseLinkedList {
 
 
     public Node reverse(Node head){
+        if (head == null || head.next == null){
+            return head;
+        }
+
         List<Integer> list = new ArrayList<>();
         Node temp = head;
         while (temp != null){
@@ -17,6 +21,25 @@ public class ReverseLinkedList {
             temp.data = list.get(i);
             temp = temp.next;
         }
+        return head;
+    }
+
+
+    public Node reverse2(Node head){
+        if (head == null || head.next == null){
+            return head;
+        }
+
+        Node curr = head;
+        Node pre = null;
+        Node fut = null;
+        while(curr != null){
+            fut = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = fut;
+        }
+        head = pre;
         return head;
     }
 }
