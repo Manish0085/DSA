@@ -3,7 +3,7 @@ package Recursion;
 public class ReverseLL {
 
     public Node reverse(Node head, Node pre){
-        if(head == null || head.next == null)
+        if(head == null)
             return pre;
 
         Node fut = head.next;
