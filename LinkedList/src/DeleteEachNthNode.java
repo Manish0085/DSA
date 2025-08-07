@@ -1,6 +1,8 @@
 public class DeleteEachNthNode {
 
     Node deleteK(Node head, int k) {
+        if (k == 1)
+            return null;
         Node temp = head;
         Node pre = null;
         int count = 1;
