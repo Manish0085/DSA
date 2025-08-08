@@ -6,10 +6,12 @@ public class InsertTheNodeJustAfterNthPos {
 
     // Assuming that the indexing is 0-based
     public Node insert(Node head, int p, int x){
-        if (head == null && p == 1){
+        if (head == null && p == 0){
             head = new Node(x);
             return head;
         }
+
+
 
         Node temp = head;
         for (int i = 0; i < p; i++) {
