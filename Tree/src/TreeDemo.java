@@ -58,6 +58,18 @@ public class TreeDemo {
         preOrderTraversal(root.right);
     }
 
+    public void inOrderTraversal(Node root) {
+        if (root == null)
+            return;
+        // Left
+        inOrderTraversal(root.left);
+        // Node
+        System.out.print(root.data+" --> ");
+        // Right
+        inOrderTraversal(root.right);
+    }
+
+
 
 
 
@@ -71,6 +83,8 @@ public class TreeDemo {
         System.out.print("Pre-Order:- ");
         obj.preOrderTraversal(root);
         // In-Order Traversal
+        System.out.print("\nIn-Order:- ");
+        obj.inOrderTraversal(root);
 
     }
 }
