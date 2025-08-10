@@ -70,7 +70,17 @@ public class TreeDemo {
     }
 
 
-
+    public void postOrderTraversal(Node root){
+        if (root == null){
+            return;
+        }
+        // Left
+        postOrderTraversal(root.left);
+        // Right
+        postOrderTraversal(root.right);
+        // Node
+        System.out.print(root.data+" --> ");
+    }
 
 
     public static void main(String[] args) {
@@ -85,7 +95,9 @@ public class TreeDemo {
         // In-Order Traversal
         System.out.print("\nIn-Order:- ");
         obj.inOrderTraversal(root);
-
+        // Post-Order Traversal
+        System.out.print("\nPost-Order:- ");
+        obj.postOrderTraversal(root);
     }
 }
 
