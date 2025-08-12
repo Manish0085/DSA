@@ -41,6 +41,21 @@ public class TopViewOfBinaryTree {
        }
 
 
+
+        public void tView(Node root, int pos, int[] ans, int[] level, int levelIndex){
+              if (root == null)
+                     return ;
+
+              if (level[pos] > levelIndex){
+                     ans[pos] = root.data;
+                     level[pos] = levelIndex;
+              }
+
+              tView(root.left, pos-1, ans, level, levelIndex+1);
+              tView(root.right , pos-1, ans, level, levelIndex+1);
+        }
+
+
        private void find(Node root, int pos){
               if (root == null)
                      return;
