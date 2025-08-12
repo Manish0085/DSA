@@ -32,7 +32,7 @@ public class IterativeTraversal {
         Stack<Node> stack = new Stack<>();
         Node temp = root;
         while (true){
-            if (root != null){
+            if (temp != null){
                 stack.push(temp);
                 temp = temp.left;
             } else {
@@ -53,7 +53,7 @@ public class IterativeTraversal {
         Stack<Node> stack1 = new Stack<>();
         Stack<Node> stack2 = new Stack<>();
         stack1.push(root);
-        while (!stack2.isEmpty()){
+        while (!stack1.isEmpty()){
             Node temp = stack1.pop();
             stack2.push(temp);
             if (temp.left != null){
@@ -62,11 +62,12 @@ public class IterativeTraversal {
             if (temp.right != null){
                 stack1.push(temp.right);
             }
-            while (!stack2.isEmpty()){
-                list.add(temp.data);
-                stack2.pop();
-            }
         }
+
+        while (!stack2.isEmpty()){
+            list.add(stack2.pop().data);
+        }
+
         return list;
     }
 }
