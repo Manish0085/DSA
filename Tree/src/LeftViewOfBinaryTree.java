@@ -24,4 +24,16 @@ public class LeftViewOfBinaryTree {
         }
         return list;
     }
+
+    public List<Integer> leftViewUsingRecursion(Node root, int level, List<Integer> ans){
+        if (root == null){
+            return ans;
+        }
+        if (level == ans.size())
+            ans.add(root.data);
+
+        leftViewUsingRecursion(root.left, level+1, ans);
+        leftViewUsingRecursion(root.right, level+1, ans);
+        return ans;
+    }
 }
