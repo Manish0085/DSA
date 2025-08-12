@@ -28,4 +28,16 @@ public class RightViewOfBinaryTee {
         }
         return list;
     }
+
+    public List<Integer> rightViewUsingRecursion(Node root, int level, List<Integer> ans){
+        if (root == null){
+            return ans;
+        }
+        if (level == ans.size())
+            ans.add(root.data);
+
+        rightViewUsingRecursion(root.right, level+1, ans);
+        rightViewUsingRecursion(root.left, level+1, ans);
+        return ans;
+    }
 }
