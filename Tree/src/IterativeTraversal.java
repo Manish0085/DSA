@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
@@ -68,6 +69,28 @@ public class IterativeTraversal {
             list.add(stack2.pop().data);
         }
 
+        return list;
+    }
+
+    public List<Integer> postorder(Node root){
+        List<Integer> list = new ArrayList<>();
+        if (root == null){
+            return list;
+        }
+
+        Stack<Node> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()){
+            Node temp = stack.pop();
+            list.add(temp.data);
+            if (temp.left != null)
+                stack.push(temp.left);
+            if (temp.right != null)
+                stack.push(temp.right);
+
+        }
+
+        Collections.reverse(list);
         return list;
     }
 }
