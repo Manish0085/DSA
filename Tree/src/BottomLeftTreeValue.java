@@ -5,6 +5,8 @@ import java.util.Queue;
 
 public class BottomLeftTreeValue {
 
+
+
     // Brute Force Approach
     // In this approach, we will be using extra space to keep the track of all the left view elements
     public int leftMostBinaryTreeValue1(Node root){
@@ -42,5 +44,24 @@ public class BottomLeftTreeValue {
         }
         return variable;
     }
+
+
+    // recursive method
+    int ans = 0;
+    int maxLevel = -1;
+
+    public void leftMostBinaryTreeValue2(Node root, int level){
+        if (root == null)
+            return;
+
+        if (level < maxLevel){
+            maxLevel = level;
+            ans = root.data;
+        }
+
+        leftMostBinaryTreeValue2(root.left, level+1);
+        leftMostBinaryTreeValue2(root.right, level+1);
+    }
+
 
 }
