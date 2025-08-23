@@ -15,6 +15,19 @@ public class CreateBinarySearchTree {
         return root;
     }
 
+    private static boolean search(Node root, int target){
+        if (root == null)
+            return false;
+
+        if (root.data == target)
+            return true;
+
+        if (root.data > target)
+            return search(root.left, target);
+        else
+            return search(root.right, target);
+    }
+
 
     private static void inorder(Node root){
         if (root == null){
@@ -34,6 +47,8 @@ public class CreateBinarySearchTree {
         }
 
         inorder(root);
+        System.out.println();
+        System.out.println(search(root, 31));;
     }
 
 
