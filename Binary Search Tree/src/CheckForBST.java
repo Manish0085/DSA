@@ -3,6 +3,25 @@ import java.util.List;
 
 public class CheckForBST {
 
+
+    int prev = Integer.MIN_VALUE;
+
+    public boolean isBST2(Node root){
+        if(root == null){
+            return true;
+        }
+        boolean left = isBST2(root.left);
+        if (left == false)
+            return false;
+        prev = root.data;
+        if (root.data <= prev)
+            return false;
+        return isBST2(root.right);
+
+    }
+
+
+    // Brute force
     private void inorder(Node root, List<Integer> ans){
         if (root == null){
             return;
@@ -14,7 +33,7 @@ public class CheckForBST {
 
     }
 
-    public boolean isBST(Node root){
+    public boolean isBST1(Node root){
         List<Integer> list = new ArrayList<>();;
         inorder(root, list);
         for (int i = 1; i < list.size(); i++) {
@@ -23,4 +42,6 @@ public class CheckForBST {
         }
         return true;
     }
+
+
 }
