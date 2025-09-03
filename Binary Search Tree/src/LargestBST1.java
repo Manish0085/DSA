@@ -1,6 +1,6 @@
 import java.util.Map;
 
-public class LargestBST {
+public class LargestBST1 {
 
 
     static class SubTree {
@@ -80,5 +80,6 @@ public class LargestBST {
             }
         }
     }
+
 
 }
