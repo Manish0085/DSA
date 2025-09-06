@@ -22,22 +22,22 @@ public class AVLTreeCreation {
 
 
         // Left-Left Case
-        if (balance > 1 && root.left.data > key){
+        if (balance > 1 && key < root.left.data){
             return rightRotation(root);
         }
         // Right-Right Case
-        else if (balance < -1 && root.right.right.data < key) {
+        else if (balance < -1 && key > root.right.data) {
             return leftRotation(root);
         }
         // Left-Right Case
-        else if (balance > 1 && root.left.data < key) {
+        else if (balance > 1 && key > root.left.data) {
             root.left = leftRotation(root.left);
             return rightRotation(root);
         }
 
 
         // Right-Left Case
-        else if (balance < -1 && root.right.data > key){
+        else if (balance < -1 && key < root.right.data){
             root.right = rightRotation(root.right);
             return leftRotation(root);
         }
@@ -56,8 +56,8 @@ public class AVLTreeCreation {
         root.right = childLeft;
 
         // update the height
-        root.height = 1 + Math.max(getHeight(root.left), getHeight(root.left));
-        child.height = 1 + Math.max(getHeight(child.left), getHeight(child.left));
+        root.height = 1 + Math.max(getHeight(root.left), getHeight(root.right));
+        child.height = 1 + Math.max(getHeight(child.left), getHeight(child.right));
         return child;
 
     }
@@ -87,6 +87,22 @@ public class AVLTreeCreation {
     }
 
 
+    private void preorder(Node root){
+        if (root == null)
+            return;
+
+        System.out.print(root.data + " ---> ");
+        preorder(root.left);
+        preorder(root.right);
+    }
+
+    private void inorder(Node root){
+        if (root == null)
+            return;
+        inorder(root.left);
+        System.out.print(root.data + " ---> ");
+        inorder(root.right);
+    }
     public static void main(String[] args) {
 
         AVLTreeCreation obj = new AVLTreeCreation();
@@ -94,14 +110,23 @@ public class AVLTreeCreation {
         Node root = null;
 
 
+
         root = obj.insert(root, 10);
         root = obj.insert(root, 20);
         root = obj.insert(root, 30);
-        root = obj.insert(root, 40);
         root = obj.insert(root, 50);
-        root = obj.insert(root, 60);
         root = obj.insert(root, 70);
-        root = obj.insert(root, 80);
-        root = obj.insert(root, 90);
+        root = obj.insert(root, 5);
+        root = obj.insert(root, 100);
+        root = obj.insert(root, 95);
+
+        System.out.println("Pre-Order Traversal");
+        obj.preorder(root);
+        System.out.println("null\n");
+
+
+        System.out.println("In-Order Traversal");
+        obj.inorder(root);
+        System.out.println("null");
     }
 }
