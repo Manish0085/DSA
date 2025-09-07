@@ -1,4 +1,5 @@
 import java.lang.reflect.Array;
+import java.time.chrono.MinguoDate;
 import java.util.Arrays;
 
 public class MaxHeap {
@@ -37,7 +38,47 @@ public class MaxHeap {
         System.out.println(arr[index] + " inserted into the heap");
     }
 
+
+    void delete(){
+        if (this.size == 0){
+            System.out.println("Heap Underflow");
+            return;
+        }
+
+        System.out.println(arr[0] + " deleted from the heap");
+        arr[0] = arr[size - 1];
+        size--;
+        if (this.size == 0){
+            return;
+        }
+
+        heapify(0);
+    }
+
+    private void heapify(int index){
+        int largest = index;
+        int left = 2*index + 1;
+        int right = 2*index + 2;
+
+        // largest will store the index of the element which is greater among parent, left child and right child
+        if (left < this.size && arr[largest] < arr[left]){
+            largest = left;
+        } if(right < this.size && arr[largest] < arr[right]){
+            largest = right;
+        }
+        if (largest != index){
+            int temp = arr[index];
+            arr[index] = arr[largest];
+            arr[largest] = temp;
+            heapify(largest);
+        }
+    }
+
     void print(){
+        if(this.size == 0){
+            System.out.println("Heap Underflow");
+            return;
+        }
         System.out.println("Heap : ");
         for (int i = 0; i < this.size; i++) {
             System.out.print(arr[i] + " --> ");
@@ -50,11 +91,22 @@ public class MaxHeap {
         maxHeap.insert(4);
         maxHeap.insert(14);
         maxHeap.insert(11);
+        maxHeap.delete();
+        maxHeap.print();
         maxHeap.insert(114);
         maxHeap.insert(24);
         maxHeap.insert(1);
         maxHeap.insert(10);
         maxHeap.print();
+        maxHeap.delete();
+        maxHeap.delete();
+        maxHeap.delete();
+        maxHeap.print();
+        maxHeap.delete();
+        maxHeap.delete();
+        maxHeap.delete();
+        maxHeap.print();
+        maxHeap.delete();
     }
 
 }
