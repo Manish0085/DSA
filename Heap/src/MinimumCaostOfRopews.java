@@ -10,7 +10,9 @@ public class MinimumCaostOfRopews {
 
         int cost = 0;
         while (priQue.size() > 1){
-            cost += (priQue.remove() + priQue.remove());
+            int sum = (priQue.remove() + priQue.remove());
+            cost += sum;
+            priQue.add(sum);
         }
 
         return cost;
