@@ -23,7 +23,7 @@ public class PriorityQueueDemo {
         maxHeap.add(10);
         maxHeap.add(20);
         maxHeap.add(1);
-        maxHeap.add(18);
+        maxHeap.add( 18);
         maxHeap.add(15);
 
         System.out.println(maxHeap.peek());
