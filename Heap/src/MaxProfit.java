@@ -16,6 +16,7 @@ public class MaxProfit {
             priQue.add(--temp);
             time--;
         }
+
         return ans;
     }
 }
