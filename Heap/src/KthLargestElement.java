@@ -3,7 +3,7 @@ import java.util.PriorityQueue;
 public class KthLargestElement {
 
     public int kthLargestElemnt(int[] arr, int k){
-        PriorityQueue<Integer> priQue = new PriorityQueue<>((a, b) -> b-a);
+        PriorityQueue<Integer> priQue = new PriorityQueue<>();
         for (int i = 0; i < k; i++) {
             priQue.add(arr[i]);
         }
