@@ -1,15 +1,16 @@
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class SumBetweenK1AndK2AmallestElement {
 
 
     public int sum(int[] arr, int k1, int k2){
-        PriorityQueue<Integer> priQue1 = new PriorityQueue<>();
-        PriorityQueue<Integer> priQue2 = new PriorityQueue<>();
+        PriorityQueue<Integer> priQue1 = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> priQue2 = new PriorityQueue<>(Comparator.reverseOrder());
         for (int i = 0; i < k1; i++) {
             priQue1.add(arr[i]);
         }
-        for (int i = 0; i < k2; i++) {
+        for (int i = 0; i < k2-1; i++) {
             priQue2.add(arr[i]);
         }
 
@@ -19,7 +20,7 @@ public class SumBetweenK1AndK2AmallestElement {
                 priQue1.add(arr[i]);
             }
         }
-        for (int i = k2; i < arr.length; i++) {
+        for (int i = k2-1; i < arr.length; i++) {
             if (arr[i] < priQue2.peek()){
                 priQue2.remove();
                 priQue2.add(arr[i]);
