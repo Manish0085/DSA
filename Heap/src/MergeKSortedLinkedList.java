@@ -11,7 +11,7 @@ class LLNode{
 public class MergeKSortedLinkedList {
 
 
-    LLNode mergeKLists(LLNode[] arr) {
+    LLNode mergeKLists1(LLNode[] arr) {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
         for (LLNode LLNode: arr){
@@ -30,4 +30,28 @@ public class MergeKSortedLinkedList {
         }
         return root;
     }
+
+
+    LLNode mergeKLists2(LLNode[] arr) {
+        PriorityQueue<LLNode> pq = new PriorityQueue<>((a, b) -> a.data - b.data);
+
+        for (LLNode node: arr){
+            if(node != null) {
+                pq.add(node);
+            }
+        }
+
+        LLNode head = new LLNode(0);
+        LLNode tail = head;
+        while (!pq.isEmpty()){
+            LLNode node = pq.poll();
+            tail.next = node;
+            tail = tail.next;
+            if(node.next != null){
+                pq.offer(node.next);
+            }
+        }
+        return head.next;
+    }
+
 }
