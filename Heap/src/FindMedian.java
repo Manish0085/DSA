@@ -26,11 +26,11 @@ public class FindMedian {
             }
 
             if (maxHeap.size() == minHeap.size()){
-                double median = (maxHeap.peek() + minHeap.peek())/2;
+                double median = (maxHeap.peek() + minHeap.peek())/2.0;
                 list.add(median);
             }
             else {
-                list.add((double)maxHeap.poll());
+                list.add((double)maxHeap.peek());
             }
         }
         return list;
