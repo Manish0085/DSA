@@ -1,9 +1,9 @@
 import java.util.PriorityQueue;
 
-class Node{
+class LLNode{
     int data;
-    Node next;
-    public Node(int data){
+    LLNode next;
+    public LLNode(int data){
         this.data = data;
         this.next = null;
     }
@@ -11,22 +11,22 @@ class Node{
 public class MergeKSortedLinkedList {
 
 
-    Node mergeKLists(Node[] arr) {
+    LLNode mergeKLists(LLNode[] arr) {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
 
-        for (Node node: arr){
-            Node temp = node;
+        for (LLNode LLNode: arr){
+            LLNode temp = LLNode;
             while (temp != null){
                 pq.offer(temp.data);
                 temp = temp.next;
             }
         }
 
-        Node root = new Node(pq.poll());
-        Node node = root;
+        LLNode root = new LLNode(pq.poll());
+        LLNode LLNode = root;
         while (!pq.isEmpty()){
-            node.next = new Node(pq.poll());
-            node = node.next;
+            LLNode.next = new LLNode(pq.poll());
+            LLNode = LLNode.next;
         }
         return root;
     }
