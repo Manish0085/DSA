@@ -1,7 +1,8 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class LeavesInBST {
+public class CountNonLeave {
+
 
     private int count = 0;
 
@@ -10,7 +11,7 @@ public class LeavesInBST {
             return this.count;
         }
 
-        if (root.left == null && root.right == null)
+        if (root.left != null || root.right != null)
             this.count++;
 
         countRecursively(root.left);
@@ -27,7 +28,7 @@ public class LeavesInBST {
         que.add(root);
         while (!que.isEmpty()){
             Node temp = que.poll();
-            if (temp.left == null && temp.right == null)
+            if (temp.left != null || temp.right != null)
                 countLeave++;
 
             if (temp.left != null)
