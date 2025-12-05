@@ -42,4 +42,35 @@ public class MergeKSortedArray {
 
         return ans;
     }
+
+    public ArrayList<Integer> mergeKArrays3(int[][] arr, int K) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < K; i++) {
+            for (int j = 0; j < K; j++) {
+                list.add(arr[i][j]);
+            }
+
+        }
+
+        mergeSort(list, 0, list.size());
+        return list;
+    }
+
+    private void mergeSort(ArrayList<Integer> ans, int start, int end)
+    {
+
+    }
+
+
+    private void merge(ArrayList<Integer> ans, int start, int mid, int end)
+    {
+        ArrayList<Integer> temp = new ArrayList<>();
+        int left = start, right = mid-1, index = 0;
+
+        while (left <= mid && right <= end){
+            if(ans.get(left) <= ans.get(right)){
+
+            }
+        }
+    }
 }
