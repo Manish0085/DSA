@@ -1,2 +1,8 @@
-package PACKAGE_NAME;public class CombinationSumI {
+import java.util.List;
+
+public class CombinationSumI {
+
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        return null;
+    }
 }
