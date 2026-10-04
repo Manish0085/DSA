@@ -10,7 +10,7 @@ public class LowerUpperBound {
                 lower = mid;
                 high = mid - 1;
             } else {
-                lower = mid + 1;
+                low = mid + 1;
             }
         }
         return lower;
@@ -26,7 +26,7 @@ public class LowerUpperBound {
                 low = mid + 1;
             } else {
                 upper = mid;
-                upper = mid - 1;
+                high = mid - 1;
             }
         }
         return upper;
