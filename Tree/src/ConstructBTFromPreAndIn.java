@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class ConstructBTFromPreAndPost {
+public class ConstructBTFromPreAndIn {
 
     public TreeNode buildTree(List<Integer> preOrder, List<Integer> inOrder) {
         return dfs(preOrder, inOrder, 0, preOrder.size()-1, 0, inOrder.size()-1);
