@@ -1,2 +1,22 @@
-package MonotronicStack;public class NGEOL {
+package MonotronicStack;
+
+import java.util.Stack;
+
+public class NGEOL {
+
+    public int[] nextLargerElement(int[] arr) {
+        Stack<Integer> st = new Stack<>();
+        int[] ans = new int[arr.length];
+        for (int i = 0; i < arr.length; i++) {
+            while (!st.isEmpty() && st.peek() <= arr[i]) {
+                st.pop();
+            }
+
+            ans[i] = st.isEmpty()? -1: st.peek();
+            st.push(arr[i]);
+        }
+
+        return ans;
+    }
+
 }
